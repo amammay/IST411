@@ -1,0 +1,35 @@
+<!DOCTYPE html> <!-- Document type deceleration -->
+<!-- Basic html5 struct --> <!-- comments -->
+<html> <!-- Start Tag -->
+	<head> <!-- Head element -->
+		<meta charset = "utf-8">
+		<title>Forms</title>
+	</head>
+<body> <!-- Body element -->
+<h1>Feedback Form </h1>
+    <p>Please Fill out this Form to help us improve our site</p>
+
+    <form method="post" action="http://www.psu.edu" >
+
+        <!--all the hidden stuff is not appearing, non-visual -->
+        <!--Information that will aslo be submitted-->
+        <input type="hidden" name="recipient" value="gref@psu.edu">
+        <input type="hidden" name="subject" value="Feedback Form">
+        <input type="hidden" name="redirect" value="index.html">
+
+        <p>
+            <label>Name:
+                <input name="name" type="text" size="25" maxlength="30">
+            </label>
+        </p>
+
+        <p>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+        </p>
+
+    </form>
+
+
+</body>
+</html> <!-- End Tag -->

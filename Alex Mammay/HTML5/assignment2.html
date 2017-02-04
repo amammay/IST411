@@ -1,0 +1,82 @@
+<!--
+Alex Mammay
+1/26/2017
+IST 411
+Dr. Lomotey
+-->
+
+<!DOCTYPE html>
+<html>
+
+<!--begin the head-->
+   <head>
+      <meta charset="utf-8">
+      <title>MegaMinds Holdings</title>
+   </head>
+<!--Begin the body-->
+   <body>
+      <h1>MegaMinds Holdings</h1>
+
+      <form method = "post" action = "http://www.megamind.com/">
+<!--First Name, its required-->
+      <p>
+          <label>First Name:
+            <input type = "text" size = "25" placeholder="John" required autofocus> (Enter First name)
+          </label>
+      </p>
+<!--Last Name, its required-->
+      <p>
+          <label>Last Name:
+            <input  type = "text" size = "25" placeholder="Doe" required > (Enter Last name)
+          </label>
+      </p>
+<!--Email, its required-->
+      <p>
+            <label>Email:
+               <input type = "email" placeholder = "name@domain.com"
+                   required/> (name@domain.com)
+            </label>
+      </p>
+<!--Date, its required-->
+      <p>
+            <label>Date:
+               <input type = "date" required />
+                  (yyyy-mm-dd)
+            </label>
+     </p>
+<!--Comment, its required-->
+      <p>
+          <label>Comment:
+            <input  type = "text" size = "50" placeholder="Comment" required > (Enter Comment here)
+          </label>
+      </p>
+<!--Gender, its required-->
+          <p>
+            Gender:
+            <label>Male
+               <input name = "Gender" type = "radio"
+                  value = "Male" required ></label>
+               
+            <label>Female
+               <input name = "Gender" type = "radio"
+                  value = "Female"></label>
+
+         </p>
+<!--Url, its optional-->
+        <p>
+            <label>URL:
+               <input type = "url"
+                  placeholder = "http://www.psu.edu" />
+                  (http://www.domainname.com)
+            </label>
+         </p>
+
+
+<!--Submit / reset buttons-->
+         <p>
+            <input type = "submit" value = "Submit" />
+            <input type = "reset" value = "Clear" />
+         </p>
+      </form>
+   </body>
+</html>
