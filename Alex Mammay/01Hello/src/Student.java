@@ -19,6 +19,9 @@ public class Student
 
 	private String firstName;
 	private String lastName;
+	private String email;
+
+
 
 	//create a no-arg constructor
 	public Student()
@@ -57,6 +60,15 @@ public class Student
 		this.lastName = lastName;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	
 	
 }
