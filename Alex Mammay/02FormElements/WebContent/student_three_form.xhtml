@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    > <!-- JSF UI Component -->
+    
+    <h:head>
+        <title>Student three Registration Form</title>
+    </h:head> <!-- Custom JSF header -->
+    
+    <h:body>
+        <h:form>
+            First Name: <h:inputText  value="#{studentThree.firstName}" label="First name" />
+           
+           	<br/> <br/>
+           	
+            Last Name: <h:inputText value="#{studentThree.lastName}" label="Last name" />
+            
+            <br/> <br/>
+ 
+ 	
+ 			Favorite Programming Languages:
+ 			<h:selectOneRadio value="#{studentThree.favoriteLanguage}">
+ 			
+ 			<f:selectItem itemValue="Java" itemLabel="Java"/>
+ 			<f:selectItem itemValue="C#" itemLabel="C#"/>
+ 			<f:selectItem itemValue="Python" itemLabel="Python"/>
+ 			<f:selectItem itemValue="C" itemLabel="C"/>
+ 			
+ 			
+ 			</h:selectOneRadio>
+ 			
+ 			<br/> <br/>
+            
+            <h:commandButton value="Submit" action="student_three_response"  />	 <!-- Submit page to student_response.xhtml -->
+
+        </h:form>
+
+    </h:body>
+
+</html>

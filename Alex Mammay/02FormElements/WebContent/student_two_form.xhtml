@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    > <!-- JSF UI Component -->
+    
+    <h:head>
+        <title>Student Two Registration Form</title>
+    </h:head> <!-- Custom JSF header -->
+    
+    <h:body>
+        <h:form>
+            First Name: <h:inputText  value="#{studentTwo.firstName}" label="First name" />
+           
+           	<br/> <br/>
+           	
+            Last Name: <h:inputText value="#{studentTwo.lastName}" label="Last name" />
+            
+            <br/> <br/>
+ 
+ 			Country: <h:selectOneMenu value="#{studentTwo.country}">
+ 			 
+ 			<f:selectItems value="#{studentTwo.countryOptions}"/> 
+ 			
+ 			
+ 			</h:selectOneMenu>
+ 			
+ 			
+ 			<!-- 
+ 			<h:selectOneMenu value="#{studentTwo.country}">
+ 			
+ 					<f:selectItem itemValue="Brazil" />
+ 					<f:selectItem itemValue="Germany" />
+ 					<f:selectItem itemValue="United States" />
+ 					<f:selectItem itemValue="France" />
+ 					<f:selectItem itemValue="Mexico" />
+ 					<f:selectItem itemValue="South Korea" />
+ 					<f:selectItem itemValue="Russia" />
+ 			
+ 			</h:selectOneMenu>
+  -->
+ 			<br/> <br/>
+            
+            <h:commandButton value="Submit" action="student_two_respone"  />	 <!-- Submit page to student_response.xhtml -->
+
+        </h:form>
+
+    </h:body>
+
+</html>
