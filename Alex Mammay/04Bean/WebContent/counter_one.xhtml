@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    > <!-- JSF UI Component -->
+    
+    <h:head>
+        <title> Counter one - Application Scope Test</title>
+
+        
+    </h:head> <!-- Custom JSF header -->
+    
+    <h:body>
+        <h:form>
+           
+           
+           <h3> Counter one - Application Scope Test </h3>
+           
+           <hr/>
+           
+           <br/> <br/>
+           
+           Counter Value: #{counterOne.value}
+           
+           <br/> <br/>
+           
+           
+           <h:form>
+           
+          	 <h:commandButton value="Increment" action="#{counterOne.increment()}"/>
+           
+           </h:form>
+           
+    
+           
+
+        </h:form>
+
+    </h:body>
+
+</html>
