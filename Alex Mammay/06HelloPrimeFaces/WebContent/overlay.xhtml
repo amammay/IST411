@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">  
+  
+    <h:head>  
+  
+    </h:head>  
+      
+    <h:body>  
+      
+          
+          
+          
+          
+          <h3>Inline</h3>
+			<p:lightBox id="lighbox2">
+    			<h:outputLink value="#">
+      			  	<h:outputText value="Video Content" />
+   				 </h:outputLink>
+ 
+   			 <f:facet name="inline">
+        		<p:media value="http://vimeo.com/moogaloop.swf?clip_id=87780794"  width="400" height="225" player="flash" />
+    		</f:facet>
+			</p:lightBox>
+ 
+<h3>IFrame</h3>
+<p:lightBox iframe="true" id="lighbox3">
+    <h:outputLink value="http://www.primefaces.org" title="PrimeFaces HomePage">
+        <h:outputText value="PrimeFaces HomePage" />
+    </h:outputLink>
+</p:lightBox>
+          
+          
+          
+          
+    </h:body>  
+</html>  

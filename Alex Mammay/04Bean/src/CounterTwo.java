@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
  * 
  */
 @ManagedBean
+//shared between users
 @ApplicationScoped
 /**
  * @author mammay
