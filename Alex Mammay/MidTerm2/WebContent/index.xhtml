@@ -1,0 +1,132 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Travel Page</title>
+
+	<style>
+.error {
+	color: red
+}
+</style>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+		<!-- Input Panel -->
+		<p:panel id="panel" header="Hotel Booking Agency"
+			style="margin-bottom:10px;">
+			<p:messages autoUpdate="true" />
+
+			<h:panelGrid id="grid" columns="3" cellpadding="5">
+
+				<h:outputLabel value="First Name" />
+				<p:inputText id="First_Name" required="true"
+					value="#{customerInfo.firstName}" label="First Name" />
+				<p:message for="First_Name" />
+
+				<h:outputLabel value="Last Name" />
+				<p:inputText id="Last_Name" required="true"
+					value="#{customerInfo.lastName}" label="Last Name" />
+				<p:message for="Last_Name" />
+
+				<h:outputLabel value="Email" />
+				<p:inputText id="email" required="true"
+					value="#{customerInfo.email}" label="Email"
+					validatorMessage="#{customerInfo.email} email is not valid">
+					<f:validateRegex
+						pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"></f:validateRegex>
+				</p:inputText>
+				<p:message for="email" />
+
+				<h:outputLabel value="Credit Card Number" />
+				<p:inputText id="CreditCard" required="true"
+					value="#{customerInfo.creditCardNumber}" label="Credit Card Number"
+					validator="#{validator.validateCreditCard}" />
+				<p:message for="CreditCard" />
+
+				<h:outputLabel value="Three Digit CVV" />
+				<p:inputText id="CreditCardCVV" required="true"
+					value="#{customerInfo.creditCardCVV}" label="CVV"
+					validator="#{validator.validateCVV}" />
+				<p:message for="CreditCardCVV" />
+
+				<p:outputLabel value="Departing Date" />
+				<p:calendar id="Departing_Date"
+					value="#{customerInfo.departureDate}"
+					mindate="#{customerInfo.currentDate}" label="Departing Date"
+					required="true" />
+				<p:message for="Departing_Date" />
+
+				<p:outputLabel value="Returning Date" />
+				<p:calendar id="Returning_Date"
+					value="#{customerInfo.returningDate}"
+					mindate="#{customerInfo.currentDate}" label="Returning Date"
+					required="true" />
+				<p:message for="Returning_Date" />
+
+				<h:outputLabel value="Number of Rooms" />
+				<p:inputText id="number_rooms" required="true"
+					value="#{customerInfo.numberOfRooms}" label="Number of Rooms">
+					<f:validateDoubleRange minimum="1" maximum="3" />
+				</p:inputText>
+				<p:message for="number_rooms" />
+
+				<h:outputLabel value="Number of Adults" />
+				<p:inputText id="numbers_adults" required="true"
+					value="#{customerInfo.numberOfAdults}" label="Number of Adults">
+					<f:validateDoubleRange minimum="1" maximum="6" />
+				</p:inputText>
+				<p:message for="numbers_adults" />
+
+				<h:outputLabel value="Number of Children" />
+				<p:inputText id="numbers_children" required="true"
+					value="#{customerInfo.numberOfChildren}" label="Number of Children">
+					<f:validateDoubleRange minimum="0" maximum="3" />
+				</p:inputText>
+				<p:message for="numbers_children" />
+
+
+
+			</h:panelGrid>
+		</p:panel>
+
+
+		<!-- Submit Button -->
+		<p:commandButton value="Ajax" icon="ui-icon-check" update="grid"
+			ajax="true" validateClient="true" style="margin-right:10px"
+			action="PF('dlg').show()" />
+
+		<!-- Dialog Popup  -->
+		<p:dialog header="Values" modal="true" resizable="false"
+			showEffect="fade" widgetVar="dlg">
+			<h:panelGrid columns="1" id="display">
+				<h:outputText value="First Name: #{customerInfo.firstName}" />
+				<h:outputText value="Last Name: #{customerInfo.lastName}" />
+				<h:outputText value="email: #{customerInfo.email}" />
+				<h:outputText
+					value="Credit Card Number: #{customerInfo.creditCardNumber}" />
+				<h:outputText value="CreditCard CVV: #{customerInfo.creditCardCVV}" />
+
+				<h:outputText value="Departing Date" />
+				<h:outputText value="#{customerInfo.departureDate}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Returning Date" />
+				<h:outputText value="#{customerInfo.returningDate}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+			</h:panelGrid>
+		</p:dialog>
+
+	</h:form>
+
+</h:body>
+</html>
