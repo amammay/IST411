@@ -16,7 +16,7 @@
 	<h:outputStylesheet library="css" name="style.css"  />
 	
 </h:head>
-
+<body background="https://s-media-cache-ak0.pinimg.com/originals/b7/41/04/b741047a97d5d1af3d5083dfd468c895.jpg"/>
 <h:body>
 
 	<div id="wrapper">
@@ -62,6 +62,16 @@
 
 					<!--  the value for each row -->
 					#{tempStudent.email}
+				</h:column>
+
+				<h:column>
+					<!-- the column header -->
+					<f:facet name="header">Action</f:facet>
+
+					<!--  the value for each row -->
+					<h:commandLink value="Update"
+						action="#{studentController.loadStudent(tempStudent.id)}"/>
+					
 				</h:column>
 
 			</h:dataTable>
