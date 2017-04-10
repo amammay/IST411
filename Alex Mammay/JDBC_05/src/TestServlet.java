@@ -9,8 +9,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import java.sql.Blob;
+
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,46 +29,52 @@ public class TestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 		response.setContentType("text/plain");
 		
 		Connection myConn = null;
 		Statement myStmt = null;
 		ResultSet myRs = null;
-		
-		InputStream input = null;
-		FileOutputStream output = null;
+		ServletOutputStream out = response.getOutputStream();
+
+		Blob image = null;
 		
 		try {
 			myConn = dataSource.getConnection();
 			
-			String mySql = "select * from employees";
+			String mySql = "select resume from employees where email='mary.public@foo.com'";
 			myStmt = myConn.createStatement();
 			
 			myRs = myStmt.executeQuery(mySql);
-			File thePicture = new File("photo_from_db.jpg");
-			output = new FileOutputStream(thePicture);
+				
 		
+
 			while (myRs.next()) {
-				String email = myRs.getString("email");
-				input =  myRs.getBinaryStream("resume");
 				
+			
+				image = myRs.getBlob(1);
 				
-				byte[] buffer = new byte[1024];
-				
-				while(input.read(buffer) > 0 )
-				{
-					output.write(buffer);
-				}
 				
 				
 			}
+			
+			  response.setContentType("image/jpg");
+			  InputStream in = image.getBinaryStream();
+			  int length = (int) image.length();
+			  int bufferSize = 1024;
+			  byte[] buffer = new byte[bufferSize];
+			  while ((length = in.read(buffer)) != -1) {
+			  out.write(buffer, 0, length);
+			  }
+			  in.close();
+			  out.flush();
+			
 				
 
 		
 		} catch (Exception exc) {
 			exc.printStackTrace();
-			out.println(exc.getMessage());
+			//out.println(exc.getMessage());
 		}
 	}
 

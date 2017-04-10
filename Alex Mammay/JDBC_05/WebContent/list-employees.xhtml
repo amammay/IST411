@@ -41,7 +41,7 @@
 					headerClass="demo-table-header"
 					rowClasses="demo-table-odd-row,demo-table-even-row">
 
-					<h:column>
+				<h:column>
 						<!-- the column header -->
 						<f:facet name="header">First Name</f:facet>
 
@@ -49,7 +49,7 @@
 					#{tempEmployee.firstName}
 				</h:column>
 
-					<h:column>
+				<h:column>
 						<!-- the column header -->
 						<f:facet name="header">Last Name</f:facet>
 
@@ -57,12 +57,20 @@
 					#{tempEmployee.lastName}
 				</h:column>
 
-					<h:column>
+				<h:column>
 						<!-- the column header -->
 						<f:facet name="header">Email</f:facet>
 
 						<!--  the value for each row -->
 					#{tempEmployee.email}
+				</h:column>
+				
+				<h:column>
+						<!-- the column header -->
+						<f:facet name="header">Image</f:facet>
+
+						<!--  the value for each row -->
+					#{tempEmployee.image}
 				</h:column>
 				
 
