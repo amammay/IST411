@@ -52,7 +52,7 @@ public class TestServlet extends HttpServlet {
 			while (myRs.next()) {
 				
 			
-				image = myRs.getBlob(1);
+				image = myRs.getBlob("resume");
 				
 				
 				
