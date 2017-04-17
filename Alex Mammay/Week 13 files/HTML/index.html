@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title> Google maps Api </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body role="document" style="height: 100%">
+    <div class="row" style="height: 100%">
+        <div id="map" class="col-sm-9"></div>
+        <div class="col-sm-3">
+            <div class="table-responsive">
+                <table class="table table-striped" style="font-size: 11px">
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2">
+                                <input id="start" type="text" placeholder="Enter your starting location" autofocus class="form-control">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <input id="end" type="text" placeholder="Enter your ending location" class="form-control">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <button type="button" class="btn btn-success" onclick="" style="width: 100%">
+                                    Show the way!
+                                </button>
+                            </td>
+                        </tr>
+                        <!--Walking / biking -->
+                        <tr>
+                            <td colspan="2">
+                                <select class="form-control" id="mode" onchange="">
+                                    <option value="Walking">Walking</option>
+                                    <option value="Bicycling">Bicycling</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <!--Starting lat -->
+                        <tr>
+                            <td> Starting location Latitude </td>
+                            <td>
+                                <input id="startLat" type="text" class="form-control" />
+                            </td>
+                        </tr>
+                        <!--Starting lng -->
+                        <tr>
+                            <td> Starting location longitude </td>
+                            <td>
+                                <input id="startLng" type="text" class="form-control" />
+                            </td>
+                        </tr>
+                        <!--Destination lat -->
+                        <tr>
+                            <td> Destination Latitude </td>
+                            <td>
+                                <input id="endLat" type="text" class="form-control" />
+                            </td>
+                        </tr>
+
+                        <!--Destination lng -->
+                        <tr>
+                            <td> Destination longitude </td>
+                            <td>
+                                <input id="endLng" type="text" class="form-control" />
+                            </td>
+                        </tr>
+
+                        <!--Destination lng -->
+                        <tr>
+                            <td colspan="2">
+                                <button id="trackPathGeo" type="button" class="btn btn-success" style="width: 100%">
+                                    Track
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Latitude: </td>
+                            <td id="currentLatitude"></td>
+                        </tr>
+                        <tr>
+                            <td>longitude: </td>
+                            <td id="currentLongitude"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Total Distance(start to end): </td>
+                            <td id="totalDistance"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Distance traveled: </td>
+                            <td id="distanceTraveled"></td>
+                        </tr>
+
+                          <tr>
+                            <td>Distance Remaining(current to end): </td>
+                            <td id="distanceRemaining"></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="googleMaps.js" />
+    <script src="../js/jquery.js" />
+    <script src="../js/bootstrap.js" />
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfqgBWTKPn5zG6z7zPrgaeRp4AUqma8KU&libraries=places&callback=initialize"
+        async defer></script>
+
+</body>
+
+</html>
