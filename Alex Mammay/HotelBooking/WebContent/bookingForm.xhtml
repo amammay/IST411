@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Hotel Booking Application</title>
+	<style type="text/css">
+body {
+	background-color: #A4BDC0;
+}
+
+h1 {
+	font-size: 250%;
+	text-align: center;
+}
+</style>
+
+</h:head>
+
+<h:body>
+
+
+	<h1>Welcome to Sun Resort</h1>
+
+	<h:form>
+		<div class="ui-fluid">
+
+			<!-- Input Panel -->
+			<p:panel id="panel" header="Hotel Booking Agency"
+				style="margin-bottom:10px;">
+				<p:messages autoUpdate="true" />
+
+				<h:panelGrid id="grid" columns="4" cellpadding="5">
+
+					<!-- First Name input, required -->
+					<h:outputLabel value="First Name" />
+					<p:inputText id="First_Name" required="true"
+						value="#{bookingView.firstName}" label="First Name" />
+					<p:message for="First_Name" />
+
+					<!-- Last Name input, not required -->
+					<h:outputLabel value="Last Name" />
+					<p:inputText id="Last_Name" value="#{bookingView.lastName}"
+						label="Last Name" />
+					<p:message for="Last_Name" />
+
+					<!-- Email input, required, will be server side validated -->
+					<h:outputLabel value="Email" />
+					<p:inputText id="email" required="true"
+						value="#{bookingView.email}" label="Email"
+						validator="#{bookingView.validateEmail}">
+					</p:inputText>
+					<p:message for="email" />
+
+					<!-- Departing date, required -->
+					<p:outputLabel value="Departing Date" />
+					<p:calendar id="Departing_Date"
+						value="#{bookingView.departureDate}"
+						mindate="#{bookingView.currentDate}" label="Departing Date"
+						required="true" />
+					<p:message for="Departing_Date" />
+
+					<!-- Returning Date, required -->
+					<p:outputLabel value="Returning Date" />
+					<p:calendar id="Returning_Date"
+						value="#{bookingView.returningDate}"
+						mindate="#{bookingView.currentDate}" label="Returning Date"
+						required="true" />
+					<p:message for="Returning_Date" />
+
+
+				</h:panelGrid>
+			</p:panel>
+
+
+			<!-- Submit Button -->
+			<p:commandButton value="Click to Book" icon="ui-icon-check"
+				update="grid" ajax="false" validateClient="true" id="submitButton"
+				style="margin-right:10px" onclick="PF('dlg').show();"
+				process="@form grid" />
+
+		</div>
+	</h:form>
+
+
+	<!-- Dialog Popup  -->
+	<p:dialog header="Values" modal="true" resizable="false"
+		widgetVar="dlg">
+		<h:form>
+			<h:panelGrid columns="1" id="display">
+				<h:outputText value="First Name: #{bookingView.firstName}" />
+				<h:outputText value="Last Name: #{bookingView.lastName}" />
+				<h:outputText value="email: #{bookingView.email}" />
+
+				<h:outputText value="Departing Date" />
+				<h:outputText value="#{bookingView.departureDate}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Returning Date" />
+				<h:outputText value="#{bookingView.returningDate}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+
+
+</h:body>
+
+
+
+
+</html>
